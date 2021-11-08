@@ -7,11 +7,13 @@ const path = require("path")
 const cookieSession = require("cookie-session")
 
 const user = require("./routers/user")
-const {use} = require("express/lib/router");
+const favicon = require('serve-favicon')
+
 
 // 创建服务器
 const app = express();
-
+// 网站小图标
+app.use( favicon(path.join(__dirname, 'public', 'favicon.ico')) )
 // 添加ejs模版引擎
 app.set('view engine', 'ejs')
 // post参数接收中间件
